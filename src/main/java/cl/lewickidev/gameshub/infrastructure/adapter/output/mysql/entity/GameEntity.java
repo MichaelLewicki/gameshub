@@ -4,10 +4,12 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import io.quarkus.runtime.annotations.RegisterForReflection;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.Date;
 @Entity
 @Data
+@EqualsAndHashCode(callSuper=false)
 @RegisterForReflection
 public class GameEntity extends PanacheEntityBase {
 
