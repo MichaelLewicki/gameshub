@@ -29,9 +29,9 @@ public interface GameController {
     @APIResponses(value = {
             @APIResponse(responseCode = "200", description = "OK",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = Game.class))),
-            //@APIResponse(responseCode = "404", description="Game not found."),
-            @APIResponse(responseCode = "409", description="Ha ocurrido un conflicto que impide aplicar la lógica de negocio en el servidor"),
-            @APIResponse(responseCode = "500", description="El servidor encontró una condición inesperada que le impide completar la petición.")
+            //@APIResponse(responseCode = "404", description="Resource not found."),
+            //@APIResponse(responseCode = "409", description="Ha ocurrido un conflicto que impide aplicar la lógica de negocio en el servidor"),
+            //@APIResponse(responseCode = "500", description="El servidor encontró una condición inesperada que le impide completar la petición.")
 
     })
     Response insertGame(@Valid @RequestBody Game gameRequest) throws HandledException;

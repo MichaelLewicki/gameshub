@@ -1,11 +1,9 @@
-FROM ghcr.io/graalvm/graalvm-ce:ol7-java17-22.3.3
+FROM registry.access.redhat.com/ubi8/ubi-minimal:8.6
 WORKDIR /work/
-COPY target/*-runner /work/application
-
-#si no funciona, cambiar COPY después de RUN
 RUN chown 1001 /work \
     && chmod "g+rwX" /work \
     && chown 1001:root /work
+COPY --chown=1001:root target/*-runner /work/application
 
 EXPOSE 8080
 USER 1001

@@ -8,6 +8,7 @@ import cl.lewickidev.gameshub.infrastructure.adapter.output.mysql.repository.Gam
 import cl.lewickidev.gameshub.infrastructure.port.output.GameOutputPort;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 
 @ApplicationScoped
 public class GameAdapter implements GameOutputPort {
@@ -19,6 +20,7 @@ public class GameAdapter implements GameOutputPort {
     MySqlDomainEntityMapper mapper;
 
     @Override
+    @Transactional
     public Game insertGame(Game gameRequest) throws HandledException {
         GameEntity gameEntity = mapper.toEntity(gameRequest);
         gameEntity.persist();
